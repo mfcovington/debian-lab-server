@@ -18,7 +18,7 @@ during installation select:
 ## install prereqs
     su
     aptitude install php5
-    aptitude install mysqlserver 
+    aptitude install mysql-server 
     aptitude install php-mysql
     aptitude install phpmyadmin
     
