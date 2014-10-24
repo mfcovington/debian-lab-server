@@ -16,8 +16,8 @@ Now finally, install RadiantCMS
 Need to install sqlite too  
 `sudo apt-get install sqlite`
 
-Need to install a newer version of ruby (2.3.1 not 1.9.3)
-`get -O ruby-install-0.5.0.tar.gz https://github.com/postmodern/ruby-install/archive/v0.5.0.tar.gz`  
+Need to install a newer version of ruby (2.3.1 not 1.9.3)  
+`wget -O ruby-install-0.5.0.tar.gz https://github.com/postmodern/ruby-install/archive/v0.5.0.tar.gz`  
 `tar -xzvf ruby-install-0.5.0.tar.gz`  
 `cd ruby-install-0.5.0/`  
 `sudo make install`  
