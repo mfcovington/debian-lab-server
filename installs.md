@@ -12,7 +12,7 @@ Unless there is a good reason not to, __please use the package manager (apt-get,
 * scipy numpy (open)
 * django (open)
 * R (Julin 10/27/14.  Ver 3.1.1).  [Details](https://github.com/jnmaloof/debian-lab-server/blob/master/r_install.md)
-* Shiny server (open)
+* Shiny server (Julin to do)
 * UCSC genome browser (open)
 * apache (Julin installed 10/27/14)
 
