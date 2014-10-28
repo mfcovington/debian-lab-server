@@ -13,3 +13,7 @@ Julin added a [document](https://github.com/jnmaloof/debian-lab-server/blob/mast
 ### Oct. 23, 2014: RadiantCMS
 
 Tiffany added a [document](https://github.com/jnmaloof/debian-lab-server/blob/master/radiantcms.md) for installation of RadiantCMS on Debian
+
+### Oct 27, 2014: Documenting installs
+
+Julin added a document with information on software that is installed or that we want installed on the server [here](https://github.com/jnmaloof/debian-lab-server/blob/master/installs.md)
