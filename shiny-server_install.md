@@ -1,6 +1,6 @@
 # Installing shiny-server
 
-Generally follow [these instructions](https://github.com/rstudio/shiny-server/wiki/Building-Shiny-Server-from-Source)
+Generally followed [these instructions](https://github.com/rstudio/shiny-server/wiki/Building-Shiny-Server-from-Source)
 
 ## Prerequisites
 
