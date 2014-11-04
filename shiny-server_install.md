@@ -89,10 +89,11 @@ And get the server started
 
      sudo service shiny-server start
      
-## note
+## changing location for apps
 
-Currently serving from /srv/shiny-server.  Probably want to change that in the future.
-See `/etc/shiny-server/shiny-server.conf`
+    sudo mkdir /mnt/data/srv/shiny-server
+    sudo vi /etc/shiny-server/shiny-server.conf
+    sudo service shiny-server restart
 
 
 
