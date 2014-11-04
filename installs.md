@@ -23,3 +23,7 @@ Unless there is a good reason not to, __please use the package manager (apt-get,
 * mosh (Julin 10/27/14)
 
         sudo aptitude install mosh
+
+* vim 7.3.547 (Mike 11/03/14)
+
+        sudo aptitude install vim
