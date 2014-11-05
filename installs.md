@@ -27,3 +27,8 @@ Unless there is a good reason not to, __please use the package manager (apt-get,
 * vim 7.3.547 (Mike 11/03/14)
 
         sudo aptitude install vim
+
+
+* htop 1.0.1-1 (Mike 11/04/14)
+
+        sudo aptitude install htop
