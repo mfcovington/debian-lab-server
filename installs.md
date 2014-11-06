@@ -9,6 +9,10 @@ Note installation procedure here (if a one liner) or link to a separate .md file
 Unless there is a good reason not to, __please use the package manager (apt-get, aptitude, etc)__
 
 * Python 3, etc. (Mike 11/03/14 v3.4.2) [Details](https://github.com/jnmaloof/debian-lab-server/blob/master/python3_install.md)
+* Python 2 headers for libs req'd by django-cms (Mike 11/05/14)
+
+         sudo aptitude install python-dev
+
 * scipy numpy (open)
 * django (open)
 * R (Julin 10/27/14.  Ver 3.1.1).  [Details](https://github.com/jnmaloof/debian-lab-server/blob/master/r_install.md)
@@ -27,7 +31,6 @@ Unless there is a good reason not to, __please use the package manager (apt-get,
 * vim 7.3.547 (Mike 11/03/14)
 
         sudo aptitude install vim
-
 
 * htop 1.0.1-1 (Mike 11/04/14)
 
