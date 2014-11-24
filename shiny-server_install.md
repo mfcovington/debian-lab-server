@@ -91,9 +91,13 @@ And get the server started
      
 ## changing location for apps
 
-    sudo mkdir /mnt/data/srv/shiny-server
+    sudo mkdir /mnt/srv/www/shiny-server
     sudo vi /etc/shiny-server/shiny-server.conf
     sudo service shiny-server restart
+    
+## availability
+
+http://symposium.plb.ucdavis.edu:3838/
 
 
 
