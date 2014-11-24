@@ -28,16 +28,7 @@ Unless there is a good reason not to, __please use the package manager (apt-get,
 * mosh (Julin 10/27/14)
 
         sudo aptitude install mosh
-<<<<<<< HEAD
-        
-* screen (Julin 11/24/14)
-
-        sudo aptitude install screen
-    
    
-
-=======
-
 * vim 7.3.547 (Mike 11/03/14)
 
         sudo aptitude install vim
@@ -45,4 +36,7 @@ Unless there is a good reason not to, __please use the package manager (apt-get,
 * htop 1.0.1-1 (Mike 11/04/14)
 
         sudo aptitude install htop
->>>>>>> 47582199776073fba7ea7e49b3aa4a4a9e799ff8
+
+* screen (Julin 11/24/14)
+
+        sudo aptitude install screen
