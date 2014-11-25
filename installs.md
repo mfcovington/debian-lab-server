@@ -40,3 +40,13 @@ Unless there is a good reason not to, __please use the package manager (apt-get,
 * screen (Julin 11/24/14)
 
         sudo aptitude install screen
+        
+* [node.js 0.10.33](http://nodejs.org/) (Julin 11/24/14)
+Followed [these instructions](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager)
+
+* bootstrap (Julin 11/24/14)
+
+        cd /mnt/srv/www
+        wget https://github.com/twbs/bootstrap/releases/download/v3.3.1/bootstrap-3.3.1-dist.zip
+        unzip bootstrap-3.3.1-dist.zip
+    
