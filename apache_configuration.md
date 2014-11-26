@@ -13,6 +13,10 @@ add the following lines to prevent display of server software and version number
 
 The configuration file is `/etc/apache2/sites-enabled/000-default`
 
+change root file directory at the beginning of the file
+
+    DocumentRoot /mnt/data/www
+
 turn off indexes and Symlinks by editing `000-default`
 
     <Directory />
