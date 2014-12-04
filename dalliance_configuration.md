@@ -134,6 +134,19 @@ Then use my bed2Bed12.R script
 
     bedToBigBed -extraIndex=name Brapa_gene_V1.5_BED12.bed B.rapa_genome_V1.5.chrom.sizes Brapa_gene_V1.5_BED12.bb
 
+## file conversion: bam to bigwig
+
+The basic plan is bam to bedgraph and bedgraph to bigwig
+
+For bam to bedgraph use [`genomecov` in bedtools](http://bedtools.readthedocs.org/en/latest/content/tools/genomecov.html)
+
+for bedgraph to bigwig use [bedGraphToBigWig from UCSC](http://hgdownload.cse.ucsc.edu/admin/exe/)
+
+commands:
+
+    genomecov -bg -split -ibam BAMFILE > OUT.bg
+    bedGraphToBigWig IN.bg CHROM.SIZES OUT.bw
+    
     
     
     
