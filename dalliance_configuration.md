@@ -148,6 +148,10 @@ commands:
     bedGraphToBigWig IN.bg CHROM.SIZES OUT.bw
     
     
-    
-    
+=======
+## for de novo transcripts
 
+File was emailed by Upendra.  hand editted by me to convert spaces to tabs where necessary.
+
+	bedsort velvet_trinity_tophat_comb_novel_final_transcripts.fasta.cap.contigs.singlets.transdecoder.filtered.blast.filtered.ucsc_v1.5_filtered.sorted.merged.filtered.renamed.sorted.renamed.final.final.renamed.bed velvet_trinity_tophat_comb_novel_final_transcripts.fasta.cap.contigs.singlets.transdecoder.filtered.blast.filtered.ucsc_v1.5_filtered.sorted.merged.filtered.renamed.sorted.renamed.final.final.renamed.bed
+	bedToBigBed -extraIndex=name velvet_trinity_tophat_comb_novel_final_transcripts.fasta.cap.contigs.singlets.transdecoder.filtered.blast.filtered.ucsc_v1.5_filtered.sorted.merged.filtered.renamed.sorted.renamed.final.final.renamed.bed B.rapa_genome_V1.5.chrom.sizes denovo.bb
