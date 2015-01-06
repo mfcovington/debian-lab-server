@@ -1,3 +1,7 @@
+# Admininstrative notes
+
+general admin stuff not related to installs
+
 ## webadmin group
 created webadmin group for web directories
 
