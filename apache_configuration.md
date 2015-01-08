@@ -42,6 +42,21 @@ then enable headers and restart apache
 
     sudo a2enmod headers
     sudo /usr/sbin/service apache2 restart
+    
+### fixing genome-browser link
+
+I made a mistake and linked a tinyURL to "http://symposium.plb.ucdavis.edu/genome-%20browser/pages/" instead of "http://symposium.plb.ucdavis.edu/genome-browser/pages/"
+
+  
+Use a .htaccess redirect to fix this.  In the `000-default` file edit the Override line in the root directory section to:
+
+    AllowOverride FileInfo=Redirect
+    		
+make a .htaccess file in the root directory with:
+
+    redirect "/genome- browser/pages/" http://symposium.plb.ucdavis.edu/genome-browser/pages/
+    
+Apparently the better way to do this is to use the mod_rewrite but I *can not* make that work after hours of trying.
 
 
     
