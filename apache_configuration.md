@@ -2,7 +2,7 @@
 
 ## Overall configuration
 
-The overall configuration file is `/etc/apache2/
+The overall configuration file is `/etc/apache2/`
 
 add the following lines to prevent display of server software and version number
     
