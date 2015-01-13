@@ -8,15 +8,18 @@ Note installation procedure here (if a one liner) or link to a separate .md file
 
 Unless there is a good reason not to, __please use the package manager (apt-get, aptitude, etc)__
 
-* Python 3, etc. (Mike 11/03/14 v3.4.2) [Details](https://github.com/jnmaloof/debian-lab-server/blob/master/python3_install.md)
+* Python 3, etc. [Details](python3_install.md)
+    * v3.4.2 (Mike 01/12/15)
+    * v3.2.3 (Mike 11/03/14)
+
 * Python 2 headers for libs req'd by django-cms (Mike 11/05/14)
 
          sudo aptitude install python-dev
 
 * scipy numpy (open)
 * django (open)
-* R (Julin 10/27/14.  Ver 3.1.1).  [Details](https://github.com/jnmaloof/debian-lab-server/blob/master/r_install.md)
-* Shiny server (Julin 10/28/14) [Details](https://github.com/jnmaloof/debian-lab-server/blob/master/shiny-server_install.md)
+* R (Julin 10/27/14.  Ver 3.1.1).  [Details](r_install.md)
+* Shiny server (Julin 10/28/14) [Details](shiny-server_install.md)
 * UCSC genome browser (Julin)
     * Actually will try [biodalliance](http://www.biodalliance.org/)
 * apache (Julin installed 10/27/14)
