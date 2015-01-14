@@ -17,7 +17,7 @@ Unless there is a good reason not to, __please use the package manager (apt-get,
          sudo aptitude install python-dev
 
 * scipy numpy (open)
-* django (open)
+* django [Details](django.md)
 * R (Julin 10/27/14.  Ver 3.1.1).  [Details](r_install.md)
 * Shiny server (Julin 10/28/14) [Details](shiny-server_install.md)
 * UCSC genome browser (Julin)
