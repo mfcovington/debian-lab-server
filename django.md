@@ -1,5 +1,6 @@
-Install Python 3 version of mod_wsgi for Apache
+Install and enable mod_wsgi for Apache (Mike, 2015-01-14)
 
 ```sh
-sudo aptitude install libapache2-mod-wsgi-py3
+sudo aptitude install libapache2-mod-wsgi
+sudo a2enmod wsgi
 ```
