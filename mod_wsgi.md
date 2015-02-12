@@ -90,5 +90,5 @@ sudo tail -n2 /var/log/apache2/error.log
 Clean up:
 
 ```sh
-rm -r $HOME/mod_wsgi-4.4.8.tar.gz
+sudo rm -r $HOME/mod_wsgi-4.4.8*
 ```

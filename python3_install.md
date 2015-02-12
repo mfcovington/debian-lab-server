@@ -52,6 +52,8 @@ cd Python-3.4.2
 ./configure --prefix=/usr/local/opt/python-3.4.2
 make
 sudo make install
+
+# clean up
 sudo rm -rf /tmp/Python-3.4.2
 rm $HOME/Python-3.4.2.tgz
 ```
