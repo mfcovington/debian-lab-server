@@ -9,6 +9,7 @@ Note installation procedure here (if a one liner) or link to a separate .md file
 Unless there is a good reason not to, __please use the package manager (apt-get, aptitude, etc)__
 
 * Python 3, etc. [Details](python3_install.md)
+    * v3.4.2 with shared library support (Mike 2015-02-10)
     * v3.4.2 (Mike 01/12/15)
     * v3.2.3 (Mike 11/03/14)
 
