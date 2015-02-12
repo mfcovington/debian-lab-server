@@ -1,20 +1,24 @@
-Install and enable mod_wsgi for Apache (Mike, 2015-01-14)
+### mod_wsgi for Apache
+
+#### Install and enable mod_wsgi via Aptitude (Mike, 2015-01-14)
 
 ```sh
 sudo aptitude install libapache2-mod-wsgi
 sudo a2enmod wsgi
 ```
 
-Install and configure PostgreSQL based on [DigitalOcean tutorial](https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-django-with-postgres-nginx-and-gunicorn) (Mike, 2015-01-14)
+### PostgreSQL
 
-Install PostgreSQL
+Install and configure PostgreSQL based on [DigitalOcean tutorial](https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-django-with-postgres-nginx-and-gunicorn)
+
+#### Install PostgreSQL (Mike, 2015-01-14)
 
 ```sh
 sudo aptitude install libpq-dev
 sudo aptitude install postgresql postgresql-contrib
 ```
 
-Configure PostgreSQL
+#### Configure PostgreSQL (Mike, 2015-01-14)
 
 ```sh
 sudo su - postgres
