@@ -2,10 +2,26 @@
 
 #### Install and enable mod_wsgi via Aptitude (Mike, 2015-01-14)
 
+First tried the Python 3 version:
+
 ```sh
+sudo aptitude install libapache2-mod-wsgi-py3
+sudo a2enmod wsgi-py3
+```
+
+With the Python 3 version of mod_wsgi, the Apache server wouldn't start when the config file tries to work with WSGI. I think this is because the Django project uses Python 3.4.2, but `aptitude` installs mod_wsgi for Python 3.2.3. Therefore, I'll try the Python 2 version.
+
+```sh
+# disable and remove py3 version
+sudo a2dismod wsgi-py3
+sudo aptitude remove libapache2-mod-wsgi-py3
+
+# install and enable py3 version
 sudo aptitude install libapache2-mod-wsgi
 sudo a2enmod wsgi
 ```
+
+This worked for Django projects using the native Python 2 version. So, at least I know I can get Django working. However, it still doesn't work for my Django lab site project that uses Python 3.4.2. Therefore, I will need to install from source.
 
 ### PostgreSQL
 
