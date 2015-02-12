@@ -9,7 +9,12 @@ sudo aptitude install libapache2-mod-wsgi-py3
 sudo a2enmod wsgi-py3
 ```
 
-With the Python 3 version of mod_wsgi, the Apache server wouldn't start when the config file tries to work with WSGI. I think this is because the Django project uses Python 3.4.2, but `aptitude` installs mod_wsgi for Python 3.2.3. Therefore, I'll try the Python 2 version.
+With the Python 3 version of mod_wsgi, the Apache server won't start when the config file tries to work with WSGI. The error returned is:
+
+    Invalid command 'WSGIDaemonProcess', perhaps misspelled or defined by a module not included in the server configuration
+    Action 'start' failed.
+
+I think this is because the Django project uses Python 3.4.2, but `aptitude` installs mod_wsgi for Python 3.2.3. Therefore, I'll try the Python 2 version.
 
 ```sh
 # disable and remove py3 version
