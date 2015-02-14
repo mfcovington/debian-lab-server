@@ -53,4 +53,7 @@ Followed [these instructions](https://github.com/joyent/node/wiki/Installing-Nod
         cd /mnt/srv/www
         wget https://github.com/twbs/bootstrap/releases/download/v3.3.1/bootstrap-3.3.1-dist.zip
         unzip bootstrap-3.3.1-dist.zip
-    
+
+* tree (displays directory tree, in color; Mike 2015-02-13)
+
+        sudo aptitude install tree
