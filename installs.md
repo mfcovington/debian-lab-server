@@ -57,3 +57,7 @@ Followed [these instructions](https://github.com/joyent/node/wiki/Installing-Nod
 * tree (displays directory tree, in color; Mike 2015-02-13)
 
         sudo aptitude install tree
+
+* git flow (v0.4.1-2, Mike 2015-02-15)
+
+        sudo aptitude install git-flow
