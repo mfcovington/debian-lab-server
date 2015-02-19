@@ -14,7 +14,7 @@ source env/bin/activate
 pip install django
 django-admin startproject $PROJECT_NAME .
 
-pip install psycopg2
+pip install psycopg2    # To allow interaction with PostgreSQL as DB
 ```
 
 ## Place project under version control
@@ -80,8 +80,37 @@ GRANT ALL PRIVILEGES ON DATABASE django_demo_db TO django_demo_admin;
 \q
 ```
 
-Logout of postgres user
+Logout postgres user
 
 ```sh
 exit
+```
+
+## Configure project to use PostgreSQL database
+
+Set the project's database to the PostgreSQL database `django_demo_db` in `~/git.repos/django_demo/django_demo/settings.py` by removing this:
+
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+```
+
+And adding this:
+
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'django_demo_db',
+        'USER': 'django_demo_admin',
+        # password will passed from environmental variable:
+        'PASSWORD': os.environ.get("DJANGO_DEMO_DB_PASSWORD", ''),
+        'HOST': '127.0.0.1',
+        'PORT': '5432', 
+    }   
+}      
 ```
