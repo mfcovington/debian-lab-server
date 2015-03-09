@@ -119,14 +119,16 @@ DATABASES = {
 
 Make changes as shown in the section on [Passing environmental variables to Django project](django-env-vars.md).
 
-Add the following four lines to `/etc/apache2/sites-enabled/000-default`:
+Add the following four lines to `/etc/apache2/sites-enabled/000-default` (with the actual password instead of 'super_secret_password'):
 
 ```apache
 <VirtualHost *:80>
 ...
     WSGIDaemonProcess django_demo python-path=/var/www/django_demo:/var/www/django_demo/env/lib/python3.4/site-packages
-    WSGIProcessGroup django_demo
-    SetEnv DJANGO_DEMO_DB_PASSWORD super_secret_password    # use actual password here
+    <Location /django_demo>
+        WSGIProcessGroup django_demo
+    </Location>
+    SetEnv DJANGO_DEMO_DB_PASSWORD super_secret_password
     WSGIScriptAlias /django_demo /var/www/django_demo/django_demo/wsgi.py
 ...
 </VirtualHost>
