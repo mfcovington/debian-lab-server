@@ -41,15 +41,15 @@ git commit -m "Add python package requirements"
 ```sh
 sudo su - root
 PROJECT_NAME=django_demo
-PROJECT_DIR=/var/www/$PROJECT_NAME
+PROJECT_DIR_PRODUCTION=/var/www/$PROJECT_NAME
 
-mkdir $PROJECT_DIR
-chown :www-data $PROJECT_DIR
-chmod g+s $PROJECT_DIR
+mkdir $PROJECT_DIR_PRODUCTION
+chown :www-data $PROJECT_DIR_PRODUCTION
+chmod g+s $PROJECT_DIR_PRODUCTION
 
-git clone --origin mfc-local /home/mfc/git.repos/django_demo/.git $PROJECT_DIR
+git clone --origin mfc-local /home/mfc/git.repos/django_demo/.git $PROJECT_DIR_PRODUCTION
 
-cd $PROJECT_DIR
+cd $PROJECT_DIR_PRODUCTION
 virtualenv -p /usr/local/opt/python-3.4.2/bin/python3.4 env
 source env/bin/activate
 
