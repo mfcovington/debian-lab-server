@@ -119,7 +119,7 @@ DATABASES = {
 
 Make changes as shown in the section on [Passing environmental variables to Django project](django-env-vars.md).
 
-Add the following four lines to `/etc/apache2/sites-enabled/000-default` (with the actual password instead of 'super_secret_password'):
+Add the following four lines to `/etc/apache2/sites-enabled/000-default` (with the actual password and secret key instead of 'super_secret_password' and 'super_secret_key'):
 
 ```apache
 <VirtualHost *:80>
@@ -128,6 +128,7 @@ Add the following four lines to `/etc/apache2/sites-enabled/000-default` (with t
     <Location /django_demo>
         WSGIProcessGroup django_demo
     </Location>
+    SetEnv DJANGO_DEMO_SECRET_KEY super_secret_key
     SetEnv DJANGO_DEMO_DB_PASSWORD super_secret_password
     WSGIScriptAlias /django_demo /var/www/django_demo/django_demo/wsgi.py
     Alias /static/django_demo /var/www/django_demo/static/
@@ -155,6 +156,7 @@ class WSGIEnvironment(WSGIHandler):
 
     def __call__(self, environ, start_response):
 
+        os.environ['DJANGO_DEMO_SECRET_KEY'] = environ['DJANGO_DEMO_SECRET_KEY']
         os.environ['DJANGO_DEMO_DB_PASSWORD'] = environ['DJANGO_DEMO_DB_PASSWORD']
         os.environ.setdefault("DJANGO_SETTINGS_MODULE", "django_demo.settings")
         django.setup()
@@ -197,3 +199,19 @@ cd $PROJECT_DIR_PRODUCTION
 source env/bin/activate
 ./manage.py collectstatic
 ```
+
+## Hide secret key
+
+Change the `SECRET_KEY` variable in `~/git.repos/django_demo/django_demo/settings.py` from this:
+
+```python
+SECRET_KEY = '9=*awu9wtsgz7*7&)zj_+l&pw+m1=uwboiqr3m&#vka&z@)a5*'
+```
+
+to this:
+
+```python
+SECRET_KEY = os.environ.get("DJANGO_DEMO_SECRET_KEY", '')
+```
+
+The new secret key was made using an [online generator](http://www.miniwebtool.com/django-secret-key-generator/).
