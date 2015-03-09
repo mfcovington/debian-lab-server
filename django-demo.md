@@ -215,3 +215,21 @@ SECRET_KEY = os.environ.get("DJANGO_DEMO_SECRET_KEY", '')
 ```
 
 The new secret key was made using an [online generator](http://www.miniwebtool.com/django-secret-key-generator/).
+
+## Add allowed host and turn off debug mode
+
+Change the `DEBUG` and `ALLOWED_HOSTS` variables in `~/git.repos/django_demo/django_demo/settings.py` from this:
+
+```python
+DEBUG = True
+...
+ALLOWED_HOSTS = []
+```
+
+to this:
+
+```python
+DEBUG = False
+...
+ALLOWED_HOSTS = ['.plb.ucdavis.edu', ]
+```
