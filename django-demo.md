@@ -159,3 +159,21 @@ class WSGIEnvironment(WSGIHandler):
 
 application = WSGIEnvironment()
 ```
+
+## Pull changes from development repository to production repository
+
+This is a reminder to make changes and commits to the git repo at `$PROJECT_DIR` and then pull those changes to the repo at `/var/www/$PROJECT_NAME`:
+
+```sh
+sudo su - root
+PROJECT_NAME=django_demo
+PROJECT_DIR_PRODUCTION=/var/www/$PROJECT_NAME
+
+BRANCH=develop
+REMOTE=mfc-local
+
+cd $PROJECT_DIR_PRODUCTION
+git fetch $REMOTE
+git checkout $BRANCH
+git merge $REMOTE/$BRANCH
+```
