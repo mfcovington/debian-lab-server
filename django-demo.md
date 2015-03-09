@@ -114,3 +114,48 @@ DATABASES = {
     }   
 }      
 ```
+
+## Configure demo site in Apache and set DB password
+
+Make changes as shown in the section on [Passing environmental variables to Django project](django-env-vars.md).
+
+Add the following four lines to `/etc/apache2/sites-enabled/000-default`:
+
+```apache
+<VirtualHost *:80>
+...
+    WSGIDaemonProcess django_demo python-path=/var/www/django_demo:/var/www/django_demo/env/lib/python3.4/site-packages
+    WSGIProcessGroup django_demo
+    SetEnv DJANGO_DEMO_DB_PASSWORD super_secret_password    # use actual password here
+    WSGIScriptAlias /django_demo /var/www/django_demo/django_demo/wsgi.py
+...
+</VirtualHost>
+```
+
+Change `$PROJECT_DIR/$PROJECT_NAME/wsgi.py` (`/home/mfc/git.repos/django_demo/django_demo/wsgi.py`) to:
+
+```python
+"""
+WSGI config for django_demo project.
+
+It exposes the WSGI callable as a module-level variable named ``application``.
+
+For more information on this file, see
+https://docs.djangoproject.com/en/1.7/howto/deployment/wsgi/
+"""
+
+from django.core.handlers.wsgi import WSGIHandler
+import django
+import os
+
+class WSGIEnvironment(WSGIHandler):
+
+    def __call__(self, environ, start_response):
+
+        os.environ['DJANGO_DEMO_DB_PASSWORD'] = environ['DJANGO_DEMO_DB_PASSWORD']
+        os.environ.setdefault("DJANGO_SETTINGS_MODULE", "django_demo.settings")
+        django.setup()
+        return super(WSGIEnvironment, self).__call__(environ, start_response)
+
+application = WSGIEnvironment()
+```
