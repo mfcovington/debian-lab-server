@@ -130,6 +130,7 @@ Add the following four lines to `/etc/apache2/sites-enabled/000-default` (with t
     </Location>
     SetEnv DJANGO_DEMO_DB_PASSWORD super_secret_password
     WSGIScriptAlias /django_demo /var/www/django_demo/django_demo/wsgi.py
+    Alias /static/django_demo /var/www/django_demo/static/
 ...
 </VirtualHost>
 ```
@@ -178,4 +179,21 @@ cd $PROJECT_DIR_PRODUCTION
 git fetch $REMOTE
 git checkout $BRANCH
 git merge $REMOTE/$BRANCH
+```
+
+## Collect static files
+
+Change `STATIC_URL` and add `STATIC_ROOT` to `$PROJECT_DIR/$PROJECT_NAME/settings.py`:
+
+```sh
+STATIC_URL = '/static/django_demo/'    # allows static files for multiple projects
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')    # 'static' dir at top of project
+```
+
+After gitignoring `/static/` and pulling the changes to the production repo, collect the static files. This can be done whenever there are changes/additions to the static files.
+
+```sh
+cd $PROJECT_DIR_PRODUCTION
+source env/bin/activate
+./manage.py collectstatic
 ```
