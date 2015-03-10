@@ -196,9 +196,15 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')    # 'static' dir at top of proje
 After gitignoring `/static/` and pulling the changes to the production repo, collect the static files. This can be done whenever there are changes/additions to the static files.
 
 ```sh
+sudo su - root
+PROJECT_NAME=django_demo
+PROJECT_DIR_PRODUCTION=/var/www/$PROJECT_NAME
+
 cd $PROJECT_DIR_PRODUCTION
 source env/bin/activate
+source secrets.txt
 ./manage.py collectstatic
+exit
 ```
 
 ## Hide secret key
