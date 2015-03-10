@@ -176,3 +176,53 @@ Remove SQLite3 database:
 ```sh
 rm $PROJECT_DIR/project.db
 ```
+
+## Configure demo site in Apache and set DB password
+
+Make changes as shown in the section on [Passing environmental variables to Django project](django-env-vars.md).
+
+Add the following four lines to `/etc/apache2/sites-enabled/000-default` (with the actual password and secret key instead of 'super_secret_password' and 'super_secret_key'):
+
+```apache
+<VirtualHost *:80>
+...
+    WSGIDaemonProcess django_cms_demo python-path=/var/www/django_cms_demo:/var/www/django_cms_demo/env/lib/python3.4/site-packages
+    <Location /django_cms_demo>
+        WSGIProcessGroup django_cms_demo
+    </Location>
+    SetEnv DJANGO_CMS_DEMO_SECRET_KEY super_secret_key
+    SetEnv DJANGO_CMS_DEMO_DB_PASSWORD super_secret_password
+    WSGIScriptAlias /django_cms_demo /var/www/django_cms_demo/django_cms_demo/wsgi.py
+    Alias /static/django_cms_demo /var/www/django_cms_demo/static/
+...
+</VirtualHost>
+```
+
+Change `$PROJECT_DIR/$PROJECT_NAME/wsgi.py` (`/home/mfc/git.repos/django_cms_demo/django_cms_demo/wsgi.py`) to:
+
+```python
+"""
+WSGI config for django_cms_demo project.
+
+It exposes the WSGI callable as a module-level variable named ``application``.
+
+For more information on this file, see
+https://docs.djangoproject.com/en/1.7/howto/deployment/wsgi/
+"""
+
+from django.core.handlers.wsgi import WSGIHandler
+import django
+import os
+
+class WSGIEnvironment(WSGIHandler):
+
+    def __call__(self, environ, start_response):
+
+        os.environ['DJANGO_CMS_DEMO_SECRET_KEY'] = environ['DJANGO_CMS_DEMO_SECRET_KEY']
+        os.environ['DJANGO_CMS_DEMO_DB_PASSWORD'] = environ['DJANGO_CMS_DEMO_DB_PASSWORD']
+        os.environ.setdefault("DJANGO_SETTINGS_MODULE", "django_cms_demo.settings")
+        django.setup()
+        return super(WSGIEnvironment, self).__call__(environ, start_response)
+
+application = WSGIEnvironment()
+```
