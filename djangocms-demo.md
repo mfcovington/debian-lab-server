@@ -344,3 +344,22 @@ And we need to create a super user:
 >     Superuser created successfully.
 
 Now we can login to the [demo site](http://symposium.plb.ucdavis.edu/django_cms_demo/admin/).
+
+## Add allowed host and turn off debug mode
+
+Change the `DEBUG` and `ALLOWED_HOSTS` variables in `~/git.repos/django_cms_demo/django_cms_demo/settings.py` from this:
+
+```python
+DEBUG = True
+...
+ALLOWED_HOSTS = []
+```
+
+to this:
+
+```python
+DEBUG = False
+...
+ALLOWED_HOSTS = ['.plb.ucdavis.edu', ]
+```
+
