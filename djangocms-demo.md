@@ -70,3 +70,44 @@ pip freeze > requirements.txt
 git add requirements.txt
 git commit -m "Add python package requirements"
 ```
+
+## Create clone of project within `/var/www/`
+
+```sh
+sudo su - root
+PROJECT_NAME=django_cms_demo
+PROJECT_DIR_DEVELOPMENT=/home/mfc/git.repos/$PROJECT_NAME
+PROJECT_DIR_PRODUCTION=/var/www/$PROJECT_NAME
+
+mkdir $PROJECT_DIR_PRODUCTION
+chown :www-data $PROJECT_DIR_PRODUCTION
+chmod g+s $PROJECT_DIR_PRODUCTION
+
+git clone --origin mfc-local $PROJECT_DIR_DEVELOPMENT/.git $PROJECT_DIR_PRODUCTION
+
+cd $PROJECT_DIR_PRODUCTION
+virtualenv -p /usr/local/opt/python-3.4.2/bin/python3.4 env
+source env/bin/activate
+
+pip install -r requirements.txt
+exit
+```
+
+Confirm versions:
+
+```sh
+python -c '
+from cms import __version__
+import django
+import sys
+
+print("django CMS: %s" % __version__)
+print("Django:     %s" % django.get_version())
+print("Python:     %s" % sys.version)
+'
+```
+
+>     django CMS: 3.0.12
+>     Django:     1.7.6
+>     Python:     3.4.2 (default, Feb 10 2015, 23:06:53) 
+>     [GCC 4.7.2]
