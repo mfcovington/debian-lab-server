@@ -111,3 +111,33 @@ print("Python:     %s" % sys.version)
 >     Django:     1.7.6
 >     Python:     3.4.2 (default, Feb 10 2015, 23:06:53) 
 >     [GCC 4.7.2]
+
+## Create and configure PostgreSQL database
+
+Create database and admin
+
+```sh
+sudo su - postgres
+createdb django_cms_demo_db
+createuser -P
+# Enter name of role to add: django_cms_demo_admin
+# Enter password for new role: 
+# Enter it again: 
+# Shall the new role be a superuser? (y/n) n
+# Shall the new role be allowed to create databases? (y/n) n
+# Shall the new role be allowed to create more new roles? (y/n) n
+psql
+```
+
+Grant privileges
+
+```sql
+GRANT ALL PRIVILEGES ON DATABASE django_cms_demo_db TO django_cms_demo_admin;
+\q
+```
+
+Logout postgres user
+
+```sh
+exit
+```
