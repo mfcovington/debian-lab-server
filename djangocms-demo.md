@@ -1,22 +1,19 @@
-# DjangoCMS Demo Project
+# django CMS Demo Project
+
+## Start django CMS Project
 
 ```sh
-sudo su - root
+PROJECT_NAME=django_cms_demo
+PROJECT_DIR=$HOME/git.repos/$PROJECT_NAME
 
-PROJECT_NAME=demo_cms
-PROJECT_DIR=/var/www/$PROJECT_NAME
-
-mkdir $PROJECT_DIR
-chown www-data:www-data $PROJECT_DIR
-chmod g+s $PROJECT_DIR
+mkdir -p $PROJECT_DIR
 cd $PROJECT_DIR
 virtualenv -p /usr/local/opt/python-3.4.2/bin/python3.4 env
 source env/bin/activate
 
 pip install djangocms-installer
-
 djangocms -s -p . $PROJECT_NAME
-# Database configuration (in URL format) [default sqlite://localhost/project.db]: sqlite://localhost//var/www/demo_cms/project.db
+# Database configuration (in URL format) [default sqlite://localhost/project.db]: 
 # django CMS version (choices: 2.4, 3.0, stable, develop) [default stable]: 3.0
 # Django version (choices: 1.4, 1.5, 1.6, 1.7, stable) [default stable]: 1.7
 # Activate Django I18N / L10N setting (choices: yes, no) [default yes]: no
@@ -27,5 +24,30 @@ djangocms -s -p . $PROJECT_NAME
 # Activate CMS permission management (choices: yes, no) [default yes]: 
 # Use Twitter Bootstrap Theme (choices: yes, no) [default no]: 
 # Use custom template set [default no]: 
-# Load a starting page with examples after installation. Choose "no" if you use a custom template set# . (choices: yes, no) [default no]: 
+# ...
+# Creating admin user
+# Username (leave blank to use 'mfc'):    
+# Email address: mfcovington@gmail.com
+# Password: 
+# Password (again): 
+# Superuser created successfully.
 ```
+
+Check versions:
+
+```sh
+python -c '
+from cms import __version__
+import django
+import sys
+
+print("django CMS: %s" % __version__)
+print("Django:     %s" % django.get_version())
+print("Python:     %s" % sys.version)
+'
+```
+
+>     django CMS: 3.0.12
+>     Django:     1.7.6
+>     Python:     3.4.2 (default, Feb 10 2015, 23:06:53) 
+>     [GCC 4.7.2]
