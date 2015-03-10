@@ -15,7 +15,7 @@ To set the environmental variable `MALOOF_LAB_SITE_DB_PASSWORD`, add the indicat
 </VirtualHost>
 ```
 
-To have import the variable into the Django project, change `/var/www/sampleapp/sampleapp/wsgi.py` from this:
+To import the variable into the Django project, change `/var/www/sampleapp/sampleapp/wsgi.py` from this:
 
 ```python
 """

@@ -58,5 +58,10 @@ make a .htaccess file in the root directory with:
     
 Apparently the better way to do this is to use the mod_rewrite but I *can not* make that work after hours of trying.
 
+### Increase security
 
-    
+Prevent unauthorized users from reading Apache site configuration (previously was `644`)
+
+```sh
+sudo chmod 640 /etc/apache2/sites-enabled/000-default 
+```
