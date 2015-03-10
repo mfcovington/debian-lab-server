@@ -284,3 +284,31 @@ Now, whenever someone needs to set these secret environmental variables, they ju
 ```sh
 eval `sudo cat secrets.txt`
 ```
+
+## Collect static files
+
+Change `STATIC_URL` in `$PROJECT_DIR/$PROJECT_NAME/settings.py` to:
+
+```sh
+STATIC_URL = '/static/django_cms_demo/'    # allows static files for multiple projects
+```
+
+Gitkeep empty static directory
+
+```sh
+touch django_cms_demo/static/.gitkeep
+```
+
+After gitignoring `/static/` and pulling the changes to the production repo, collect the static files. This can be done whenever there are changes/additions to the static files.
+
+```sh
+sudo su - root
+PROJECT_NAME=django_cms_demo
+PROJECT_DIR_PRODUCTION=/var/www/$PROJECT_NAME
+
+cd $PROJECT_DIR_PRODUCTION
+source env/bin/activate
+source secrets.txt
+./manage.py collectstatic
+exit
+```
