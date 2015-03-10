@@ -245,3 +245,19 @@ git checkout $BRANCH
 git merge $REMOTE/$BRANCH
 exit
 ```
+
+## Hide secret key
+
+Change the `SECRET_KEY` variable in `~/git.repos/django_cms_demo/django_cms_demo/settings.py` from this:
+
+```python
+SECRET_KEY = 'qa(2+^2f*)z6ubf5y8j@y)(+#qm(_v$%%od+b!_2o-3syouln8'
+```
+
+to this:
+
+```python
+SECRET_KEY = os.environ.get("DJANGO_CMS_DEMO_SECRET_KEY", '')
+```
+
+The new secret key was made using an [online generator](http://www.miniwebtool.com/django-secret-key-generator/).
