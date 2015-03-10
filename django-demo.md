@@ -181,6 +181,7 @@ cd $PROJECT_DIR_PRODUCTION
 git fetch $REMOTE
 git checkout $BRANCH
 git merge $REMOTE/$BRANCH
+exit
 ```
 
 ## Collect static files
