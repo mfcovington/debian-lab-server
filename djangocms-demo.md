@@ -90,6 +90,8 @@ virtualenv -p /usr/local/opt/python-3.4.2/bin/python3.4 env
 source env/bin/activate
 
 pip install -r requirements.txt
+pip install psycopg2    # To allow interaction with PostgreSQL as DB
+
 exit
 ```
 
@@ -140,4 +142,37 @@ Logout postgres user
 
 ```sh
 exit
+```
+
+## Configure project to use PostgreSQL database
+
+Set the project's database to the PostgreSQL database `django_cms_demo_db` in `~/git.repos/django_cms_demo/django_cms_demo/settings.py` by removing this:
+
+```python
+DATABASES = {
+    'default':
+        {'NAME': 'project.db', 'PORT': '', 'PASSWORD': '', 'HOST': 'localhost', 'USER': '', 'ENGINE': 'django.db.backends.sqlite3'}
+}
+```
+
+And adding this:
+
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'django_cms_demo_db',
+        'USER': 'django_cms_demo_admin',
+        # password will passed from environmental variable:
+        'PASSWORD': os.environ.get("DJANGO_CMS_DEMO_DB_PASSWORD", ''),
+        'HOST': '127.0.0.1',
+        'PORT': '5432', 
+    }   
+}
+```
+
+Remove SQLite3 database:
+
+```sh
+rm $PROJECT_DIR/project.db
 ```
