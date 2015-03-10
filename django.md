@@ -6,3 +6,4 @@
 ## Configuration
 
 - [Passing environmental variables to Django project](django-env-vars.md)
+- [Make a Django demo site and configure it for production](django-demo.md)
