@@ -261,3 +261,26 @@ SECRET_KEY = os.environ.get("DJANGO_CMS_DEMO_SECRET_KEY", '')
 ```
 
 The new secret key was made using an [online generator](http://www.miniwebtool.com/django-secret-key-generator/).
+
+## Create a secret file to hold secrets
+
+In order to do migrations (and some other things), the secret key and the database password need to be set as environmental variables. However, the way we are passing them from Apache's configuration to `settings.py` via `wsgi.py` prevents them from being set for everyday use.
+
+We can get around this by placing an `export` statement for each secret variable into a file (`secrets.txt` located in the production directory) that is only readable by root. This is file will be gitignored.
+
+```sh
+sudo su - root
+SECRETS_FILE=/var/www/django_cms_demo/secrets.txt
+
+echo 'export DJANGO_CMS_DEMO_SECRET_KEY="<super_secret_key>"
+export DJANGO_CMS_DEMO_DB_PASSWORD="<super_secret_password>"' > $SECRETS_FILE
+
+chmod 600 $SECRETS_FILE
+exit
+```
+
+Now, whenever someone needs to set these secret environmental variables, they just need to run this:
+
+```sh
+eval `sudo cat secrets.txt`
+```
