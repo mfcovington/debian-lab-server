@@ -51,3 +51,22 @@ print("Python:     %s" % sys.version)
 >     Django:     1.7.6
 >     Python:     3.4.2 (default, Feb 10 2015, 23:06:53) 
 >     [GCC 4.7.2]
+
+## Place project under version control
+
+```sh
+cd $PROJECT_DIR
+git init
+git flow init -d
+
+curl https://raw.githubusercontent.com/github/gitignore/master/Python.gitignore > .gitignore
+git add .gitignore
+git commit -m "Populate .gitignore with template from github/gitignore"
+
+git add .
+git commit -m "Create django CMS project $PROJECT_NAME"
+
+pip freeze > requirements.txt
+git add requirements.txt
+git commit -m "Add python package requirements"
+```
