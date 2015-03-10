@@ -312,3 +312,35 @@ source secrets.txt
 ./manage.py collectstatic
 exit
 ```
+
+## Migrate database and create super user
+
+To perform the initial database migration, we do the following:
+
+```sh
+cd /var/www/django_cms_demo/
+eval `sudo cat secrets.txt`
+./manage.py migrate
+```
+
+>     Operations to perform:
+>       Apply all migrations: auth, contenttypes, admin, sessions
+>     Running migrations:
+>       Applying contenttypes.0001_initial... OK
+>       Applying auth.0001_initial... OK
+>       Applying admin.0001_initial... OK
+>       Applying sessions.0001_initial... OK
+
+And we need to create a super user:
+
+```sh
+./manage.py createsuperuser
+```
+
+>     Username (leave blank to use 'mfc'): 
+>     Email address: mfcovington@gmail.com
+>     Password: 
+>     Password (again): 
+>     Superuser created successfully.
+
+Now we can login to the [demo site](http://symposium.plb.ucdavis.edu/django_cms_demo/admin/).
