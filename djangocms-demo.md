@@ -1,5 +1,24 @@
 # django CMS Demo Project
 
+Below is a walkthrough for creating and deploying a django CMS [demo site](http://symposium.plb.ucdavis.edu/django_cms_demo/admin) with Apache and PostgreSQL.
+
+<!-- MarkdownTOC -->
+
+- [Start django CMS Project](#start-django-cms-project)
+- [Place project under version control](#place-project-under-version-control)
+- [Create clone of project within `/var/www/`](#create-clone-of-project-within-varwww)
+- [Create and configure PostgreSQL database](#create-and-configure-postgresql-database)
+- [Configure project to use PostgreSQL database](#configure-project-to-use-postgresql-database)
+- [Configure demo site in Apache and set DB password](#configure-demo-site-in-apache-and-set-db-password)
+- [Pull changes from development repository to production repository](#pull-changes-from-development-repository-to-production-repository)
+- [Hide secret key](#hide-secret-key)
+- [Create a secret file to hold secrets](#create-a-secret-file-to-hold-secrets)
+- [Collect static files](#collect-static-files)
+- [Migrate database and create super user](#migrate-database-and-create-super-user)
+- [Add allowed host and turn off debug mode](#add-allowed-host-and-turn-off-debug-mode)
+
+<!-- /MarkdownTOC -->
+
 ## Start django CMS Project
 
 ```sh
@@ -181,7 +200,7 @@ rm $PROJECT_DIR/project.db
 
 Make changes as shown in the section on [Passing environmental variables to Django project](django-env-vars.md).
 
-Add the following four lines to `/etc/apache2/sites-enabled/000-default` (with the actual password and secret key instead of 'super_secret_password' and 'super_secret_key'):
+Add the following eight lines to `/etc/apache2/sites-enabled/000-default` (with the actual password and secret key instead of 'super_secret_password' and 'super_secret_key'):
 
 ```apache
 <VirtualHost *:80>
